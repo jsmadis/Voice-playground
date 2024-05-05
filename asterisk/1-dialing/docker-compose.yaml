@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  asterisk:
+    image: andrius/asterisk:alpine-latest-20.5.2
+    ports:
+      - '5060:5060/tcp'
+      - '5060:5060/udp'
+      # RTP port range
+      - '10000-10010:10000-10010/udp'
+    environment:
+      - ASTERISK_USER=root
+    volumes:
+      - ./config:/etc/asterisk
